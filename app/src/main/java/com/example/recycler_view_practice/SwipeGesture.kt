@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 
-open class SwipeGesture (context: Context): ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT or  ItemTouchHelper.RIGHT){
+open class SwipeGesture (context: Context): ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END,ItemTouchHelper.LEFT or  ItemTouchHelper.RIGHT){
 
     val deleteColor = ContextCompat.getColor(context, android.R.color.holo_red_dark)
     val archiveColor = ContextCompat.getColor(context, android.R.color.holo_green_dark)
@@ -17,13 +17,6 @@ open class SwipeGesture (context: Context): ItemTouchHelper.SimpleCallback(0,Ite
     val archiveIcon = R.drawable.ic_baseline_archive
 
 
-    override fun onMove(
-        recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        target: RecyclerView.ViewHolder,
-    ): Boolean {
-        return false
-    }
 
     override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean)
     {
@@ -38,6 +31,14 @@ open class SwipeGesture (context: Context): ItemTouchHelper.SimpleCallback(0,Ite
 
         super.onChildDraw(c!!, recyclerView!!,
             viewHolder!!, dX, dY, actionState, isCurrentlyActive)
+    }
+
+    override fun onMove(
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder,
+        target: RecyclerView.ViewHolder,
+    ): Boolean {
+        TODO("Not yet implemented")
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {

@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -68,9 +70,22 @@ class MainActivity : AppCompatActivity() {
                         val archiveItem=newAL[viewHolder.adapterPosition]
                         adapter.deleteItem(viewHolder.adapterPosition)
                         adapter.addItem(newAL.size,archiveItem)
-                        Toast.makeText(this@MainActivity,"Archived",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity,"Archieved",Toast.LENGTH_SHORT).show()
                     }
                 }
+            }
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ): Boolean {
+                val from_pos=viewHolder.adapterPosition
+                val to_pos=target.adapterPosition
+
+                Collections.swap(newAL,from_pos,to_pos)
+                adapter.notifyItemMoved(from_pos,to_pos)
+                return false
             }
         }
 
