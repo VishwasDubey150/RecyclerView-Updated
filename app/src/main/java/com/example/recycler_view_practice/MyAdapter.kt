@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(private val newlist:ArrayList<list>):
@@ -20,6 +21,18 @@ class MyAdapter(private val newlist:ArrayList<list>):
     fun setOnItemClickListener(listener: onItemClickListener)
     {
         mListener=listener
+    }
+
+    fun deleteItem(i:Int)
+    {
+        newlist.removeAt(i)
+        notifyDataSetChanged()
+    }
+
+    fun addItem(i:Int,news :list)
+    {
+        newlist.add(i,news)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
