@@ -121,9 +121,9 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this@MainActivity,"Deleted",Toast.LENGTH_SHORT).show()
                     }
                     ItemTouchHelper.RIGHT->{
-                        val archiveItem=newAL[viewHolder.adapterPosition]
+                        val archiveItem=temparrayList[viewHolder.adapterPosition]
                         adapter.deleteItem(viewHolder.adapterPosition)
-                        adapter.addItem(newAL.size,archiveItem)
+                        adapter.addItem(temparrayList.size,archiveItem)
                         Toast.makeText(this@MainActivity,"Archieved",Toast.LENGTH_SHORT).show()
                     }
                 }
