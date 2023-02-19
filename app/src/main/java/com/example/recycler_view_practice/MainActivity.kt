@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var newAL: ArrayList<list>
     private lateinit var image: Array<Int>
     private lateinit var name: Array<String>
+    private lateinit var dec: Array<String>
+    private lateinit var isExpandable: Array<Boolean>
     private lateinit var temparrayList:ArrayList<list>
 
 
@@ -48,6 +50,53 @@ class MainActivity : AppCompatActivity() {
             "Ms Dhoni",
             "Mark Zuckerberg",
             "Ratan Tata")
+
+        dec= arrayOf(
+            "Virat Kohli is an Indian international cricketer and " +
+                    "former captain of the Indian national team who " +
+                    "plays as a right-handed batsman for Royal Challengers" +
+                    " Bangalore in the IPL ",
+
+            "Shah Rukh Khan, also known by the initialism SRK, " +
+                    "is an Indian actor and film producer who works" +
+                    " in Hindi films. Referred to in the media as the" +
+                    " \"Baadshah of Bollywood\" and \"King Khan\"",
+
+            "Elon Reeve Musk FRS is a business magnate and investor." +
+                    " He is the founder, CEO and chief engineer of SpaceX; " +
+                    "angel investor, CEO and product architect of Tesla," +
+                    " Inc.; owner and CEO of Twitter, Inc.",
+
+            "Zakir Khan is an Indian comedian and actor. " +
+                    "In 2012, he rose to popularity by winning" +
+                    " Comedy Central India's Best Stand Up Comedian competition.",
+
+            "Shawn Peter Raul Mendes is a Canadian pop singer-songwriter. " +
+                    "He gained a following in 2013, when he posted song covers " +
+                    "on the video sharing platform Vine.",
+
+            "A Youtuber and a software engineer at Meta Dublin",
+
+            "Lionel Andrés Messi, also known as Leo Messi, is an Argentine professional" +
+                    " footballer who plays as a forward for Ligue 1 club Paris Saint-Germain " +
+                    "and captains the Argentina national team.",
+
+            "Cristiano Ronaldo dos Santos Aveiro GOIH ComM is a Portuguese professional " +
+                    "footballer who plays as a forward for and captains both Saudi Professional" +
+                    " League club Al Nassr and the Portugal national team.",
+
+            "Mahendra Singh Dhoni, commonly known as MS Dhoni, is a former Indian " +
+                    "cricketer and captain of the Indian national team in limited-overs " +
+                    "formats from 2007 to 2017, and in Test cricket from 2008 to 2014.",
+
+            "Mark Elliot Zuckerberg is an American business magnate, internet entrepreneur," +
+                    " and philanthropist. He is known for co-founding the social media website " +
+                    "Facebook and its parent company Meta Platforms,",
+
+            "Ratan Naval Tata is an Indian businessman and former chairman of Tata Sons." +
+                    " He was also the chairman of the Tata Group from 1990 to 2012, serving " +
+                    "also as interim chairman from October 2016 through February 2017"
+        )
 
         var rv = findViewById<RecyclerView>(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
@@ -99,7 +148,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getUserdata() {
         for (i in image.indices) {
-            val Lists = list(image[i], name[i])
+            val Lists = list(image[i], name[i],dec[i])
             newAL.add(Lists)
         }
 
